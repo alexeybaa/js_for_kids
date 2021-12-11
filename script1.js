@@ -42,3 +42,10 @@ console.log(double(5) + double(6));
 console.log(double(5) + double(6));
 
 console.log(double(double(3)));
+
+let randomWords = ["Планета", "Червяк", "Цветок", "Компьютер"];
+
+function pickRandomWord(words) {
+  return words[Math.floor(Math.random() * words.length)];
+}
+console.log(pickRandomWord(randomWords));
