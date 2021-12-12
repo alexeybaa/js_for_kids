@@ -49,3 +49,64 @@ function pickRandomWord(words) {
   return words[Math.floor(Math.random() * words.length)];
 }
 console.log(pickRandomWord(randomWords));
+
+function generateRandomInsult() {
+  let randomBodyParts = ["глаз", "нос", "череп", "живот"];
+  let randomAdjectives = ["вонючая", "унылая", "дурацкая", "гнилая"];
+  randomWords = [
+    "муха",
+    "выдра",
+    "дубина",
+    "мартышка",
+    "крыса",
+    "гнида",
+    "сопля",
+  ];
+
+  let randomString =
+    "У тебя " +
+    pickRandomWord(randomBodyParts) +
+    " словно " +
+    pickRandomWord(randomAdjectives) +
+    " " +
+    pickRandomWord(randomWords) +
+    "!!!";
+  return randomString;
+}
+console.log(generateRandomInsult());
+console.log(generateRandomInsult());
+console.log(generateRandomInsult());
+
+function fifthLetter(names) {
+  if (names.length < 5) {
+    return;
+  }
+  return "Пятая буква вашего имени: " + names[4] + ".";
+}
+
+console.log(fifthLetter("Алексей"));
+
+function medalForScore(score) {
+  if (score < 3) {
+    return "Бронзовая";
+  }
+  if (score < 7) {
+    return "Серебрянная";
+  }
+
+  return "Золотая";
+}
+
+console.log(medalForScore(10));
+
+function add(number1, number2) {
+  return number1 + number2;
+}
+
+let summ = add(9824, 777);
+
+function multiply(summ, number4) {
+  return summ * number4;
+}
+
+console.log(multiply(summ, 36325));
