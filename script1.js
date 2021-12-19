@@ -130,6 +130,8 @@ areArraysSame([3, 2, 3], [1, 2, 3]);
 // игра виселица через функции
 
 //функции
+
+//код
 let word = pickWord();
 
 let answerArray = setupAnswerArray(word);
