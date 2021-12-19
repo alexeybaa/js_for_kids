@@ -110,3 +110,19 @@ function multiply(summ, number4) {
 }
 
 console.log(multiply(summ, 36325));
+
+//сравнение массивов
+function areArraysSame(array1, array2) {
+  if (array1.length === array2.length) {
+    for (let x = 0; x < array1.length; x++) {
+      if (array1[x] === array2[x]) {
+        // console.log(true);
+      } else {
+        console.log(false);
+      }
+    }
+  } else {
+    console.log(false);
+  }
+}
+areArraysSame([1, 2, 3], [1, 2, 3]);
