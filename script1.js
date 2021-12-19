@@ -116,7 +116,7 @@ function areArraysSame(array1, array2) {
   if (array1.length === array2.length) {
     for (let x = 0; x < array1.length; x++) {
       if (array1[x] === array2[x]) {
-        // console.log(true);
+        console.log(true);
       } else {
         console.log(false);
       }
@@ -125,4 +125,30 @@ function areArraysSame(array1, array2) {
     console.log(false);
   }
 }
-areArraysSame([1, 2, 3], [1, 2, 3]);
+areArraysSame([3, 2, 3], [1, 2, 3]);
+
+// игра виселица через функции
+
+//функции
+let word = pickWord();
+
+let answerArray = setupAnswerArray(word);
+
+let remainingLetters = word.length;
+
+while (remainingLetters > 0) {
+  showPlayerProgress(answerArray);
+}
+
+let guess = getGuess();
+if (guess === null) {
+  break;
+} else if (guess.length !==1){
+  alert ("Пожалуйста введите одиночную букву.")
+} else {
+let correctGuesses = updateGameState (guess, word, answerArray);
+remainingLetters -= correctGuesses;
+}
+
+showAnswerAndCongratulatePlayer (answerArray);
+
