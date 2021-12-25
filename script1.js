@@ -128,7 +128,6 @@ function areArraysSame(array1, array2) {
 areArraysSame([3, 2, 3], [1, 2, 3]);
 
 // игра виселица через функции
-
 //функции
 
 let words = ["программа", "макака", "прекрасный", "оладушек", "телефон"];
@@ -154,6 +153,25 @@ function showPlayerProgress(answerArray) {
 function getGuess() {
   prompt("Угадайте букву или нажмите Отмена для выхода из игры.");
 }
+
+//
+function updateGameState(guess, word, answerArray) {
+  for (let j = 0; j < word.length; j++) {
+    if (word[j] === guess) {
+      answerArray[j] = guess;
+      remainingLetters--;
+    }
+  }
+}
+
+//
+
+function showAnswerAndCongratulatePlayer(answerArray) {
+  alert(answerArray.join(" "));
+  alert("Отлично! Было загадано слово " + word);
+}
+
+//
 //код
 let word = pickWord();
 console.log(word);
@@ -166,14 +184,13 @@ let remainingLetters = word.length;
 while (remainingLetters > 0) {
   showPlayerProgress(answerArray);
 
-  let guess = getGuess();
+  let guess = prompt("Угадайте букву или нажмите Отмена для выхода из игры.");
   if (guess === null) {
     break;
   } else if (guess.length !== 1) {
     alert("Пожалуйста введите одиночную букву.");
   } else {
     let correctGuesses = updateGameState(guess, word, answerArray);
-    remainingLetters -= correctGuesses;
   }
 }
 showAnswerAndCongratulatePlayer(answerArray);
