@@ -131,26 +131,49 @@ areArraysSame([3, 2, 3], [1, 2, 3]);
 
 //функции
 
+let words = ["программа", "макака", "прекрасный", "оладушек", "телефон"];
+
+//возвращает случайно выбранное слово
+function pickWord() {
+  return words[Math.floor(Math.random() * words.length)];
+}
+//Возвращает итоговый массив для заданного слова word
+function setupAnswerArray(word) {
+  let answerArray = [];
+  for (let i = 0; i < word.length; i++) {
+    answerArray[i] = "_";
+  }
+  return answerArray;
+}
+
+// С помощью alert отображает текущее состояние игры
+function showPlayerProgress(answerArray) {
+  alert(answerArray.join(" "));
+}
+// Запрашивает ответ игрока с помощью promt
+function getGuess() {
+  prompt("Угадайте букву или нажмите Отмена для выхода из игры.");
+}
 //код
 let word = pickWord();
+console.log(word);
 
 let answerArray = setupAnswerArray(word);
-
+console.log(answerArray);
+//
 let remainingLetters = word.length;
 
 while (remainingLetters > 0) {
   showPlayerProgress(answerArray);
+
+  let guess = getGuess();
+  if (guess === null) {
+    break;
+  } else if (guess.length !== 1) {
+    alert("Пожалуйста введите одиночную букву.");
+  } else {
+    let correctGuesses = updateGameState(guess, word, answerArray);
+    remainingLetters -= correctGuesses;
+  }
 }
-
-let guess = getGuess();
-if (guess === null) {
-  break;
-} else if (guess.length !==1){
-  alert ("Пожалуйста введите одиночную букву.")
-} else {
-let correctGuesses = updateGameState (guess, word, answerArray);
-remainingLetters -= correctGuesses;
-}
-
-showAnswerAndCongratulatePlayer (answerArray);
-
+showAnswerAndCongratulatePlayer(answerArray);
